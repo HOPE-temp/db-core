@@ -1,0 +1,29 @@
+version: '3.3'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_hope_ms
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mydatabasems
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data_hope_ms:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      PMA_HOST: mysql
+    ports:
+      - '8080:80'
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data_hope_ms:
