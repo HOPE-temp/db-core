@@ -6,6 +6,8 @@ Database core of Hope SOA
 
 ## Project setup
 
+Install [docker y docker compose](https://docs.docker.com/compose/install/)
+
 ```bash
 $ npm install
 ```
